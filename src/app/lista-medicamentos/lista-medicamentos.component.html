@@ -1,0 +1,25 @@
+<h2>Lista Medicamentos</h2>
+<table class="table table-striped">
+  <thead class="table-dark">
+    <tr>
+      <th>Id</th>
+      <th>Nombre</th>
+      <th>Categoria</th>
+      <th>Laboratorio</th>
+      <th>Dosis</th>
+      <th>Precio</th>
+      <th>POS</th>
+    </tr>
+  </thead>
+  <tbody >
+    <tr *ngFor="let medi of medicamentos">
+      <td>{{medi.id}}</td>
+      <td>{{medi.nombre}}</td>
+      <td>{{medi.categoria}}</td>
+      <td>{{medi.laboratorio}}</td>
+      <td>{{medi.dosis}}</td>
+      <td>{{medi.precio}}</td>
+      <td>{{medi.pos}}</td>
+    </tr>
+  </tbody>
+</table>
