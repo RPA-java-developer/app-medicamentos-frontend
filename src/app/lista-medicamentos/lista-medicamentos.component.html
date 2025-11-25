@@ -1,6 +1,21 @@
 <h2>Lista Medicamentos</h2>
-<table class="table table-striped">
+<div class="table-container">
+ <!--
+<table class="table table-striped ">
+-->
+  <table class="table table-striped">
+
   <thead class="table-dark">
+    <colgroup>
+      <col style="width: 5%;">
+      <col style="width: 15%;">
+      <col style="width: 15%;">
+      <col style="width: 10%;">
+      <col style="width: 25%;">
+      <col style="width: 5%;">
+      <col style="width: 5%;">
+      <col style="width: 20%;">
+    </colgroup>
     <tr>
       <th>Id</th>
       <th>Nombre</th>
@@ -9,17 +24,28 @@
       <th>Dosis</th>
       <th>Precio</th>
       <th>POS</th>
+      <th>Acciones</th>
     </tr>
   </thead>
   <tbody >
     <tr *ngFor="let medi of medicamentos">
-      <td>{{medi.id}}</td>
+      <td>{{medi.idDto}}</td>
       <td>{{medi.nombre}}</td>
       <td>{{medi.categoria}}</td>
       <td>{{medi.laboratorio}}</td>
       <td>{{medi.dosis}}</td>
       <td>{{medi.precio}}</td>
       <td>{{medi.pos}}</td>
+
+      <td>
+          <button (click)="actualizarMedicamento(medi.idDto)" class="btn btn-info">Editar</button>
+
+          <button (click)="eliminarMedicamento(medi.idDto)" class="btn btn-danger" style="margin-left: 10px;">Eliminar</button>
+
+          <button (click)="verMedicamento(medi.idDto)" class="btn btn-primary" style="margin-left: 10px;">Ver</button>
+      </td>
+
     </tr>
   </tbody>
 </table>
+</div>

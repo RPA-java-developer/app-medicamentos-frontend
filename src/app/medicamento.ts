@@ -1,5 +1,5 @@
 export class Medicamento {
-  id:number;
+  idDto:number;
   nombre:string;
   categoria:string;
   laboratorio:string;

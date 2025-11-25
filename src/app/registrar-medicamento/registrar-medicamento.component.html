@@ -1,0 +1,96 @@
+<div class="col-md-6 offset-md-3">
+  <h3 class="text-center">Registrar un nuevo Medicamento</h3>
+  <form (ngSubmit)="onSubmit()" #medicamentoForm = "ngForm">
+
+    <div class="form-group">
+      <label>Nombre:</label>
+      <input type="text" class="form-control" id="nombre"       [(ngModel)]="medicamento.nombre"        name="nombre"
+          required  minlength="4" maxlength="50" placeholder="Escriba un nombre" #nombre = "ngModel" />
+          <div class="alert alert-danger" *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)">
+            <div *ngIf = "nombre.errors?.required">
+              Digite su nombre por favor
+            </div>
+            <div *ngIf = "nombre.errors?.minlength">
+              El nombre debe contener mínimo 4 caracteres
+            </div>
+          </div>
+    </div>
+    <div class="form-group">
+      <label>Categoria:</label>
+      <input type="text" class="form-control" id="categoria"    [(ngModel)]="medicamento.categoria"     name="categoria"
+          required  minlength="4" maxlength="100" placeholder="Escriba una categoría" #categoria = "ngModel" />
+          <div class="alert alert-danger" *ngIf="categoria.invalid && (categoria.dirty || categoria.touched)">
+            <div *ngIf = "categoria.errors?.required">
+              Digite la categoría por favor
+            </div>
+            <div *ngIf = "categoria.errors?.minlength">
+              La Categoria debe contener mínimo 4 caracteres
+            </div>
+          </div>
+    </div>
+    <div class="form-group">
+      <label>Laboratorio:</label>
+      <input type="text" class="form-control" id="laboratorio"  [(ngModel)]="medicamento.laboratorio"   name="laboratorio"
+          required  minlength="4" maxlength="100" placeholder="Escriba un laboratorio" #laboratorio = "ngModel" />
+          <div class="alert alert-danger" *ngIf="laboratorio.invalid && (laboratorio.dirty || laboratorio.touched)">
+            <div *ngIf = "laboratorio.errors?.required">
+              Digite un laboratorio por favor
+            </div>
+            <div *ngIf = "laboratorio.errors?.minlength">
+              El laboratorio debe contener mínimo 4 caracteres
+            </div>
+          </div>
+    </div>
+    <div class="form-group">
+      <label>Dosis:</label>
+      <input type="text" class="form-control" id="dosis"        [(ngModel)]="medicamento.dosis"         name="dosis"
+          required  minlength="4" maxlength="200" placeholder="Escriba una dosis" #dosis = "ngModel" />
+          <div class="alert alert-danger" *ngIf="dosis.invalid && (dosis.dirty || dosis.touched)">
+            <div *ngIf = "dosis.errors?.required">
+              Digite la dosis del medicamento por favor
+            </div>
+            <div *ngIf = "dosis.errors?.minlength">
+              El dosis debe contener mínimo 4 caracteres
+            </div>
+          </div>
+    </div>
+    <div class="form-group">
+      <label>Precio:</label>
+      <input type="text" class="form-control" id="precio"       [(ngModel)]="medicamento.precio"        name="precio"
+          required  minlength="4" maxlength="10" placeholder="Escriba un precio" #precio = "ngModel" />
+          <div class="alert alert-danger" *ngIf="nombre.invalid && (precio.dirty || precio.touched)">
+            <div *ngIf = "precio.errors?.required">
+              Digite su precio por favor
+            </div>
+            <div *ngIf = "precio.errors?.minlength">
+              El precio debe contener mínimo 4 caracteres
+            </div>
+          </div>
+    </div>
+    <div class="form-group">
+      <label>Pos:</label>
+      <input type="text" class="form-control" id="pos"          [(ngModel)]="medicamento.pos"           name="pos"
+          required  minlength="4" maxlength="5" placeholder="Escriba si es POS o NO POS" #pos = "ngModel" />
+          <div class="alert alert-danger" *ngIf="pos.invalid && (pos.dirty || pos.touched)">
+            <div *ngIf = "pos.errors?.required">
+              Digite si el medicamento es POS por favor
+            </div>
+            <div *ngIf = "pos.errors?.minlength">
+              El pos debe contener mínimo 4 caracteres
+            </div>
+          </div>
+    </div>
+    <div class="form-group">
+    </div>
+
+    <br/>
+    <br/>
+    <button class="btn btn-success" [disabled]="!medicamentoForm.form.valid">Guardar</button>
+
+
+
+
+  </form>
+
+
+</div>

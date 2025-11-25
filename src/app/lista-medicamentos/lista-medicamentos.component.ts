@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Medicamento } from '../medicamento';
 import { MedicamentoService } from '../medicamento.service';
+import { Router } from '@angular/router';
+import swal from 'sweetalert2';
 
 @Component({
   selector: 'app-lista-medicamentos',
@@ -12,7 +14,7 @@ export class ListaMedicamentosComponent implements OnInit {
 
   medicamentos:Medicamento[];
 
-  constructor(private medicamentoServicio:MedicamentoService) {}
+  constructor(private medicamentoServicio:MedicamentoService, private router:Router) {}
 
 
   ngOnInit(): void {
@@ -42,6 +44,61 @@ export class ListaMedicamentosComponent implements OnInit {
       }
     );
   }
+
+
+
+  actualizarMedicamento(id:number) {
+
+  };
+
+  /*
+  eliminarMedicamento(id:number) {
+    this.medicamentoServicio.eliminarMedicamento(id).subscribe(
+      dato => {
+        console.log(dato);
+        this.obtenerMedicamentos();
+      }
+    );
+
+  }
+  */
+
+  eliminarMedicamento(id:number){
+    (swal as any).fire({
+      title: '¿Estas seguro?',
+      text: "Confirma si deseas eliminar el medicamento",
+      type: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Si , elimínalo',
+      cancelButtonText: 'No, cancelar',
+      confirmButtonClass: 'btn btn-success',
+      cancelButtonClass: 'btn btn-danger',
+      buttonsStyling: true
+    }).then((result: { value: any; }) => {
+      if(result.value){
+        this.medicamentoServicio.eliminarMedicamento(id).subscribe(dato => {
+          console.log(dato);
+          this.obtenerMedicamentos();
+          (swal as any).fire({
+            title: 'Medicamento eliminado',
+            text: 'El empleado ha sido eliminado con exito',
+            icon: 'success'
+          });
+        })
+      }
+    })
+  }
+
+
+
+  verMedicamento(id:number) {
+    console.log("esto es en ver medicamento...........");
+    console.log(id);
+    this.router.navigate(['ver-medicamento', id]);
+  }
+
 
 
 
