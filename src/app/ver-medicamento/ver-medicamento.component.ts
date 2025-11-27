@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Medicamento } from '../medicamento';
-import { MedicamentoService } from '../medicamento.service';
+import { MedicamentoService } from '../services/medicamento.service';
 import { ActivatedRoute } from '@angular/router';
 import swal from 'sweetalert2';
 

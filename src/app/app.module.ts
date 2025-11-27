@@ -10,6 +10,10 @@ import { RegistrarMedicamentoComponent } from './registrar-medicamento/registrar
 import { FormsModule } from '@angular/forms';
 import { ActualizarMedicamentoComponent } from './actualizar-medicamento/actualizar-medicamento.component';
 import { VerMedicamentoComponent } from './ver-medicamento/ver-medicamento.component';
+import { HomeComponent } from './home/home.component';
+import { MenuComponent } from './menu/menu.component';
+import { LoginComponent } from './auth/login.component';
+import { RegistroComponent } from './auth/registro.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +22,11 @@ import { VerMedicamentoComponent } from './ver-medicamento/ver-medicamento.compo
     ListaMedicamentosComponent,
     RegistrarMedicamentoComponent,
     ActualizarMedicamentoComponent,
-    VerMedicamentoComponent
+    VerMedicamentoComponent,
+    HomeComponent,
+    MenuComponent,
+    LoginComponent,
+    RegistroComponent
   ],
   imports: [
     BrowserModule,

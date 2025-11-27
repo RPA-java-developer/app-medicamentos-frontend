@@ -1,0 +1,14 @@
+
+<div class="container">
+  <div class="jumbotron">
+    <h1 class="display-4">Bienvenido</h1>
+
+    <h1 class="display-4" *ngIf="!nombreUsuario">Hola Usuario</h1>
+    <h1 class="display-4" *ngIf="nombreUsuario">Hola, {{nombreUsuario}}</h1>
+
+    <p  class="lead">Este es el sitio de Gestión de Medicamentos</p>
+    <hr class="my-4">
+    <p>Información publica del sitio</p>
+    <a class="btn btn-primary btn-lg" href="#" role="button">Botón publico</a>
+  </div>
+</div>

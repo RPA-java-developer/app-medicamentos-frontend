@@ -1,0 +1,24 @@
+.contenedor {
+  display: flex;
+
+  background-color: #212529;
+
+}
+
+
+.hijo1 {
+  margin-right: 300px;
+  width: 86%;
+
+  /*background-color: green;*/
+
+   justify-content: center;
+}
+
+.hijo2 {
+  justify-content: right;
+  margin-right: 20px;
+  width: 14%;
+
+  /*background-color: red;*/
+}
