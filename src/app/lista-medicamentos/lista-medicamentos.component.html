@@ -3,6 +3,7 @@
  <!--
 <table class="table table-striped ">
 -->
+  <div  *ngIf="isAdmin || isUsuarioLogeado">
   <table class="table table-striped">
 
   <thead class="table-dark">
@@ -37,7 +38,8 @@
       <td>{{medi.precio}}</td>
       <td>{{medi.pos}}</td>
 
-      <td>
+      <td *ngIf="isAdmin">
+
           <button (click)="actualizarMedicamento(medi.idDto)" class="btn btn-info">Editar</button>
 
           <button (click)="eliminarMedicamento(medi.idDto)" class="btn btn-danger" style="margin-left: 10px;">Eliminar</button>
@@ -45,7 +47,13 @@
           <button (click)="verMedicamento(medi.idDto)" class="btn btn-primary" style="margin-left: 10px;">Ver</button>
       </td>
 
+      <td *ngIf="isUsuarioLogeado">
+          <button (click)="verMedicamento(medi.idDto)" class="btn btn-primary" style="margin-left: 10px;">Ver</button>
+      </td>
+
+
     </tr>
   </tbody>
 </table>
+</div>
 </div>

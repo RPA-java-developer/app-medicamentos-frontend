@@ -1,0 +1,63 @@
+<h2>Lista Solicitudes</h2>
+<div class="table-container">
+  <!--
+  <div  *ngIf="isAdmin || isUsuarioLogeado">
+  -->
+  <div>
+
+    <table class="table table-striped">
+    <thead class="table-dark">
+      <colgroup>
+        <col style="width: 5%;">
+        <col style="width: 15%;">
+        <col style="width: 15%;">
+        <col style="width: 10%;">
+        <col style="width: 25%;">
+        <col style="width: 5%;">
+        <col style="width: 5%;">
+        <col style="width: 20%;">
+      </colgroup>
+      <tr>
+        <th>Id</th>
+        <th>Estado</th>
+        <th>Fecha</th>
+        <th>Total</th>
+        <th>SedeId</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody >
+      <tr *ngFor="let solicitud of solicitudes">
+        <td>{{solicitud.id}}</td>
+        <td>{{solicitud.estado}}</td>
+        <td>{{solicitud.fecha}}</td>
+        <td>{{solicitud.total}}</td>
+        <td>{{solicitud.idSede}}</td>
+
+
+        <!--
+        <td *ngIf="isAdmin">
+        -->
+        <td>
+            <button  class="btn btn-info">Editar</button>
+
+            <button  class="btn btn-danger" style="margin-left: 10px;">Eliminar</button>
+
+            <button  class="btn btn-primary" style="margin-left: 10px;">Detalles</button>
+        </td>
+
+        <!--
+
+        <td *ngIf="isUsuarioLogeado">
+            <button (click)="verMedicamento(medi.idDto)" class="btn btn-primary" style="margin-left: 10px;">Ver</button>
+        </td>
+        -->
+
+      </tr>
+    </tbody>
+    </table>
+
+
+  </div>
+
+</div>

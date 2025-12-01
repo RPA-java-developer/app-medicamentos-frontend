@@ -14,6 +14,13 @@ import { HomeComponent } from './home/home.component';
 import { MenuComponent } from './menu/menu.component';
 import { LoginComponent } from './auth/login.component';
 import { RegistroComponent } from './auth/registro.component';
+import { interceptorProvider } from './interceptors/medicamento.interceptor';
+//import { MediNoPosComponent } from './medi-no-pos/medi-no-pos.component';
+
+import { RegistrarSolicitudComponent } from './registrar-solicitud/registrar-solicitud.component';
+
+import { ListaSolicitudesComponent } from './lista-solicitudes/lista-solicitudes.component';
+import { ModalComponent } from './modal/modal.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +33,11 @@ import { RegistroComponent } from './auth/registro.component';
     HomeComponent,
     MenuComponent,
     LoginComponent,
-    RegistroComponent
+    RegistroComponent,
+    RegistrarSolicitudComponent,
+    ListaSolicitudesComponent,
+    ModalComponent,
+    //MediNoPosComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +45,7 @@ import { RegistroComponent } from './auth/registro.component';
     HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  providers: [interceptorProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

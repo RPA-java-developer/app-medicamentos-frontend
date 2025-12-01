@@ -13,9 +13,9 @@ export class MedicamentoService {
   medicamentoURL = environment.medicamentoURL;
 
   // Esta URL obtiene el listado de los MEDICAMENTOS desde el backend.
-  private baseURLlista = "http://localhost:8080/api/v1/medicamentosPlano";
+  private baseURLlista = "http://localhost:8092/api/v1/medicamentosPlano";
 
-  //private baseURL = "http://localhost:8080/api/v1/medicamentos";
+  //private baseURL = "http://localhost:8092/api/v1/medicamentos";
   private baseURL = this.medicamentoURL;
 
     constructor(private httpClient : HttpClient) { }

@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { Medicamento } from '../medicamento';
 import { MedicamentoService } from '../services/medicamento.service';
 import { Router } from '@angular/router';
 import swal from 'sweetalert2';
+import { TokenService } from '../services/token.service';
 
 @Component({
   selector: 'app-lista-medicamentos',
@@ -11,10 +12,21 @@ import swal from 'sweetalert2';
 })
 export class ListaMedicamentosComponent implements OnInit {
 
+  //private dialog = inject(Dialog);
+  //protected openModal() {
+    //this.dialog.open(SignU);
+  //}
 
   medicamentos:Medicamento[];
 
-  constructor(private medicamentoServicio:MedicamentoService, private router:Router) {}
+  isAdmin: boolean;
+  isUsuarioLogeado: boolean;
+
+  constructor(
+    private medicamentoServicio:MedicamentoService,
+    private router:Router,
+    private tokenServicio: TokenService
+  ) {}
 
 
   ngOnInit(): void {
@@ -34,6 +46,17 @@ export class ListaMedicamentosComponent implements OnInit {
      */
 
         this.obtenerMedicamentos();
+
+        //this.isAdmin = this.tokenServicio.isAdmin();
+        const perfil = this.tokenServicio.getPerfilUsuario();
+        console.log(perfil);
+        if (perfil == 'ADMINISTRADOR') {
+          this.isAdmin = true;
+        }
+        if (perfil == 'USUARIO') {
+          this.isUsuarioLogeado = true;
+        }
+
 
   }
 

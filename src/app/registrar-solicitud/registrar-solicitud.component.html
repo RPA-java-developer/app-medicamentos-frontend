@@ -1,0 +1,94 @@
+<div class="col-md-8 offset-md-3">
+  <h3 class="text-center">Registrar una nueva Solicitud</h3>
+  <form (ngSubmit)="onSubmit()" #solicitudForm = "ngForm">
+
+    <table>
+      <tbody>
+        <tr>
+        <td>
+          <div class="form-group">
+            <label>Sede:</label>
+            <input type="text" class="form-control" id="idSede"       [(ngModel)]="solicitudDto.idSede"        name="idSede"
+                required  minlength="1" maxlength="3" placeholder="Escriba una sede" #idSede = "ngModel" />
+                <div class="alert alert-danger" *ngIf="idSede.invalid && (idSede.dirty || idSede.touched)">
+                  <div *ngIf = "idSede.errors?.required">
+                    Digite una sede por favor
+                  </div>
+                  <div *ngIf = "idSede.errors?.minlength">
+                    El ID de la Sede debe ser mínimo 1 número
+                  </div>
+                </div>
+          </div>
+        </td>
+        <td>
+        <div class="form-group">
+          <label>Estado:</label>
+          <input type="text" class="form-control" id="estado"    [(ngModel)]="solicitudDto.estado"     name="estado"
+              required  minlength="4" maxlength="100" placeholder="Escriba un estado" #estado = "ngModel" />
+              <div class="alert alert-danger" *ngIf="estado.invalid && (estado.dirty || estado.touched)">
+                <div *ngIf = "estado.errors?.required">
+                  Digite un estado por favor
+                </div>
+                <div *ngIf = "estado.errors?.minlength">
+                  Un estado debe contener mínimo 4 caracteres
+                </div>
+              </div>
+        </div>
+        </td>
+        </tr>
+        <tr>
+          <td>
+          <div class="form-group">
+            <label>Fecha:</label>
+            <input type="text" class="form-control" id="fecha"  [(ngModel)]="solicitudDto.fecha"   name="fecha"
+                required  minlength="4" maxlength="100" placeholder="Escriba una fecha" #fecha = "ngModel" />
+                <div class="alert alert-danger" *ngIf="fecha.invalid && (fecha.dirty || fecha.touched)">
+                  <div *ngIf = "fecha.errors?.required">
+                    Digite una fecha por favor
+                  </div>
+                  <div *ngIf = "fecha.errors?.minlength">
+                    La fecha debe contener mínimo 4 caracteres
+                  </div>
+                </div>
+          </div>
+          </td>
+          <td>
+            <div class="form-group">
+              <label>Total:</label>
+              <input type="text" class="form-control" id="total"        [(ngModel)]="solicitudDto.total"         name="total"
+                  required  minlength="1" maxlength="6" placeholder="Escriba un total" #total = "ngModel" />
+                  <div class="alert alert-danger" *ngIf="total.invalid && (total.dirty || total.touched)">
+                    <div *ngIf = "total.errors?.required">
+                      Digite el total de la solicitud por favor
+                    </div>
+                    <div *ngIf = "total.errors?.minlength">
+                      El total debe contener mínimo 1 caracteres
+                    </div>
+                  </div>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <br/>
+    <br/>
+    <button class="btn btn-success" [disabled]="!solicitudForm.form.valid">Guardar</button>
+
+
+  </form>
+
+
+
+      <div>
+
+        <button (click)="openModal()">Open Modal</button>
+
+        <app-modal *ngIf="isModalOpen"  [title]="'Adicionar Medicamento'" (closeModal)="closeModal()">
+          <p>This is the content of the modal.</p>
+        </app-modal>
+
+
+    </div>
+
+</div>

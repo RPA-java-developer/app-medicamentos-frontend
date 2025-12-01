@@ -7,16 +7,26 @@ import { VerMedicamentoComponent } from './ver-medicamento/ver-medicamento.compo
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './auth/login.component';
 import { RegistroComponent } from './auth/registro.component';
+import { LoginGuard } from './guards/login.guard';
+import { RegistrarSolicitudComponent } from './registrar-solicitud/registrar-solicitud.component';
+import { ListaSolicitudesComponent } from './lista-solicitudes/lista-solicitudes.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'home', component: HomeComponent},
   {path: 'sedes', component:ListaSedesComponent},
+
   {path: "medicamentos", component:ListaMedicamentosComponent},
   {path: "registrar-medicamento", component : RegistrarMedicamentoComponent},
+
+  {path: "solicitudes", component: ListaSolicitudesComponent},
+  {path: "solicitud", component: RegistrarSolicitudComponent},
+
+
+
   {path: "ver-medicamento/:idDto", component :VerMedicamentoComponent},
-  {path: "login", component :LoginComponent},
-  {path: "registro", component :RegistroComponent},
+  {path: "login", component :LoginComponent, canActivate: [LoginGuard]},
+  {path: "registro", component :RegistroComponent, canActivate: [LoginGuard]},
   {path: '*', redirectTo: '', pathMatch: 'full'}
 ];
 @NgModule({

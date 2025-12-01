@@ -10,7 +10,7 @@ export class SedeService {
 
 
   // Esta URL obtiene el listado de las sedes desde el backend.
-  private baseURL = "http://localhost:8080/api/v1/sedes";
+  private baseURL = "http://localhost:8092/api/v1/sedes";
 
     constructor(private httpClient : HttpClient) { }
 
@@ -19,10 +19,6 @@ export class SedeService {
       return this.httpClient.get<Sede[]>(`${this.baseURL}`)
 
     }
-
-
-
-
 
 
 }
